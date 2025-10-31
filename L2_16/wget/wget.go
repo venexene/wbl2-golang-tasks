@@ -319,11 +319,11 @@ func MirrorPage(link string) error {
 	fmt.Printf("Found %d resources:\n", len(resLinks))
 
 	for resURL, filename := range resLinks {
-		fmt.Printf("  Downloading %s -> %s\n", resURL, filename)
+		fmt.Printf("Downloading %s -> %s\n", resURL, filename)
 		filePath := filepath.Join(resFolder, filename)
 		err := downloadResource(resURL, filePath)
 		if err != nil {
-			fmt.Printf("  Warning: Failed to download %s: %v\n", resURL, err)
+			fmt.Printf("!Warning: Failed to download %s: %v\n", resURL, err)
 			delete(resLinks, resURL)
 		}
 	}
